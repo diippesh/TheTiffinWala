@@ -10,7 +10,7 @@ config.env
 logs/
 
 # React files
-public/
+
 build/
 *.js.map
 
@@ -56,17 +56,3 @@ logs/
 .env.test
 .env.production
 
-# Other files and folders that are not relevant to the project
-*.zip
-*.rar
-*.7z
-*.gz
-*.tar
-*.bz2
-*.tgz
-*.iso
-*.img
-*.pdf
-*.docx
-*.xlsx
-*.pptx
