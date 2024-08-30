@@ -3,7 +3,6 @@ const env = require('dotenv');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const path = require('path');
 const CronJob = require('cron').CronJob;
 
 const user = require('./routes/User');
@@ -67,12 +66,6 @@ app.use('/api/v1/address', address);
 app.use('/api/v1/review', review);
 app.use('/api/v1/reach', contact);
 app.use('/api/v1/initialData', initialData);
-
-app.use(express.static(path.join(__dirname, '../client/public')));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/public', 'index.html'));
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
