@@ -29,6 +29,8 @@ function Footer() {
             <Link to="/providers"><li className='pl-2 font-medium cursor-pointer  hover:text-blue-700'>Tiffin Providers</li></Link>
             <Link to="/registerProvider"><li className='pl-2 font-medium cursor-pointer  hover:text-blue-700'>Provider Registration</li></Link>
             <Link to="/loginProvider"><li className='pl-2 font-medium cursor-pointer  hover:text-blue-700'>Provider Login</li></Link>
+            <Link to="/about"><li className='pl-2 font-medium cursor-pointer  hover:text-blue-700'>About Us</li></Link>
+            <Link to="/contact"><li className='pl-2 font-medium cursor-pointer  hover:text-blue-700'>Contact Us</li></Link>
           </ul>
         </div>
       </div>
