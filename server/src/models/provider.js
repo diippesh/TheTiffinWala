@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken")
+const env = require('dotenv')
+env.config()
 const providerSchema = new mongoose.Schema({
     name:{
         type:String,

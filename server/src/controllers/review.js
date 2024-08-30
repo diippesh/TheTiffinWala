@@ -8,12 +8,14 @@ exports.addReview = async(req,res) =>{
         const message = req.body.message
         const data = {user,provider,rating,message}
 
+        if(!user)
+            return res.status(404).json({message:"Login to add review"})
+        
         const providerData = await providerModal.findById(provider)
         let providerRating = Number(providerData.rating)
         providerRating = (providerRating + Number(rating)) / 2.0;
         await providerModal.findByIdAndUpdate(provider,{$set:{rating:providerRating}})
-        if(!user)
-            return res.status(404).json({message:"Login to add review"})
+        
         
         const review = await reviewModal.create(data)
         return res.status(201).json({review});

@@ -69,8 +69,13 @@ export const updateUserOrder = (data) => async (dispatch) => {
       url: `http://localhost:4000/api/v1/order/updateStatus`,
       data,
     });
+    console.log("order success --->"+ order.data);
     dispatch(updateUserOrderSuccess(order.data));
   } catch (error) {
+    console.log("order fail response--->"+ error.response);
+    console.log("order fail responseData--->"+ error.response.data);
+
+
     return dispatch(orderFail(error.response.data.message));
   }
 };

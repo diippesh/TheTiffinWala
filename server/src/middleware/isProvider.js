@@ -1,5 +1,7 @@
 const providerModel = require('../models/provider')
 const jwt = require('jsonwebtoken')
+const env = require('dotenv')
+env.config()
 exports.isProvider = async (req,res,next) =>{    
     try{
         if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){

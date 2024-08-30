@@ -59,6 +59,7 @@ function MealSubscription() {
           data.paymentStatus = "Success"
          
           dispatch(addOrder(data))
+          dispatch(getUserOrders());
           window.alert("Order Placed Succefully")
           navigate('/orders')
         }else{

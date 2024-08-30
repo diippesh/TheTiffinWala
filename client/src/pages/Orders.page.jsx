@@ -14,8 +14,8 @@ function OrdersPage() {
     const [reviewModal, setReviewModal] = useState(false)
     const [activeOrder, setActiveOrder] = useState("")
     let data = ""
-
-    if (orders || orders?.length === 0) {
+    // console.log(orders);
+    if (!orders || orders?.length === 0) {
         data = <p className='text-gray-600 flex items-center justify-center' style={{ height: '50vh' }}>No Orders Found</p>
     }
     const handleReviewModal = (order) => {

@@ -21,7 +21,7 @@ import OrdersPage from "./pages/Orders.page";
 import { getAllReview } from "./redux/review/review.action";
 import AboutUspage from "./pages/AboutUspage";
 import ContactUsPage from "./pages/ContactUsPage";
-import dotenv from 'react-dotenv'
+import NotFoundPage from "./pages/NotFoundPage";
 // PrivateRoute
 const PrivateRoute = ({ children }) => {
   const provider = useSelector((state) => state.provider);
@@ -53,6 +53,8 @@ function App() {
       <Route path="/provider" element={<AllProvidersPage />} />
       <Route path="/food/:_id" element={<MealPage />} />
       <Route path="/orders" element={<OrdersPage />} />
+      
+
       <Route path="/providers" element={<AllProvidersPage />} />
       <Route path="/provider/:_id" element={<ProviderPage />} />
       <Route path="/registerProvider" element={<ProviderRegistration />} />
@@ -68,6 +70,7 @@ function App() {
         <Route path="orders" element={<ProviderOrders />} />
         <Route path="meals" element={<ProviderMeals />} />
       </Route>
+        <Route path="*" element={<NotFoundPage/>} />
     </Routes>
   );
 }

@@ -14,7 +14,7 @@ const updateOrders = (orders, updatedOrder) => {
 };
 
 const orderSlice = createSlice({
-  name: "Foods",
+  name: "Orders",
   initialState,
   reducers: {
     orderRequest: (state) => {
@@ -25,18 +25,18 @@ const orderSlice = createSlice({
       state.orders = action.payload.orders;
     },
     updateOrderSuccess: (state, action) => {
-      state.loading = false;
       state.orders = updateOrders(
         current(state.orders),
         action.payload.updatedOrder
       );
+      state.loading = false;
     },
     updateUserOrderSuccess: (state, action) => {
-      state.loading = false;
       state.userOrders = updateOrders(
         current(state.userOrders),
         action.payload.updatedOrder
       );
+      state.loading = false;
     },
     addOrderSuccess: (state, action) => {
      

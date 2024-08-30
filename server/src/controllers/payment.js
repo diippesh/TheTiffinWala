@@ -1,4 +1,6 @@
 const Razorpay = require('razorpay')
+const env = require('dotenv')
+env.config()
 
 exports.orders = async(req,res) =>{
     let instance = new Razorpay({key_id:process.env.KEY_ID, key_secret:process.env.KEY_SECRET})

@@ -12,9 +12,9 @@ exports.addOrder = async (req, res) => {
         const data = req.body;
 
         const obj = { user, ...data };
-      
+
         const order = await orderModel.create(obj);
-      
+
 
         const food = await foodModel.findById(data.food);
         const quantity = food.quantity - data.quantity;
@@ -101,7 +101,7 @@ exports.deleteOrder = async (req, res) => {
 
 exports.updateOrderStatus = async (req, res) => {
     try {
-      
+
         const status = req.body.status;
         const id = req.body._id;
         const email = req.body.user;
@@ -115,31 +115,26 @@ exports.updateOrderStatus = async (req, res) => {
             const quantity = myOrder.quantity + req.body.food.quantity;
             await foodModel.findByIdAndUpdate(req.body.food._id, { $set: { quantity } });
         }
-        
+
         const updatedOrder = await orderModel.findByIdAndUpdate(id, { orderStatus: status }, { new: true }).populate("user food");
-        try {
+                try {
             const emailRes = await mailSender(
                 updatedOrder.email,
-              "Order Updated Successfully",
-              updateOrderMail(updatedOrder._id,updatedOrder.email,updatedOrder.orderStatus)
+                "Order Updated Successfully",
+                updateOrderMail(updatedOrder._id, updatedOrder.email, updatedOrder.orderStatus)
             )
-           
-            return res.json({
-              success: true,
-              message: "Email send successfully",
-            })
-          } catch (error) {
-        
-           
-            return res.json({
-              success: false,
-              message: "Something went wrong...",
-            })
-          }
 
+            // return res.json({
+            //   success: true,
+            //   message: "Email send successfully",
+            // })
+        } catch (error) {
 
+            console.error("Email sending failed:", error.message);
+        }
         return res.status(200).json({ updatedOrder });
     } catch (error) {
+        console.error("Order status update failed:", error.message);
         return res.status(500).json({ message: error.message });
     }
 };
