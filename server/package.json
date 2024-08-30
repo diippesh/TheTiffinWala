@@ -7,7 +7,7 @@
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
-  "author": "Anas",
+  "author": "Anshulparihar",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
