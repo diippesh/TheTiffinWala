@@ -19,16 +19,8 @@ const app = express();
 
 env.config();
 
-const originsWhitelist = [
-    
-    'http://localhost:3000',
-    'https://the-tiffin-wala.vercel.app/'
-];
 const corsOptions = {
-    origin: function (origin, callback) {
-        const isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
-        callback(null, isWhitelisted);
-    },
+    origin: '*', // Allow all origins
     credentials: true
 };
 
