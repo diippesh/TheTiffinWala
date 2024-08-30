@@ -1,12 +1,11 @@
 {
-  "name": "tiffinwala",
+  "name": "tiffinwala-server",
   "version": "1.0.0",
   "description": "Tiffin Server Application",
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js",
-    "build": "npm install && npm install --prefix ../client && npm run build --prefix ../client"
+    "dev": "nodemon ./src/index.js"
   },
   "author": "Anshulparihar",
   "license": "ISC",
