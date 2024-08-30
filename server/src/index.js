@@ -20,8 +20,9 @@ const app = express();
 env.config();
 
 const originsWhitelist = [
-    'https://tiffin-managment-client.vercel.app',
-    'http://localhost:3000'
+    
+    'http://localhost:3000',
+    'https://the-tiffin-wala.vercel.app/'
 ];
 const corsOptions = {
     origin: function (origin, callback) {
