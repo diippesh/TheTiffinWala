@@ -14,7 +14,7 @@ const ContactUs = () => {
   const onSubmit = async (data) => {
     
     try {
-      const response = await axios.post("http://localhost:4000/api/v1/reach/contact", data, {
+      const response = await axios.post("https://thetiffinwala.onrender.com/api/v1/reach/contact", data, {
         headers: {
           "Content-Type": "application/json",
         },
