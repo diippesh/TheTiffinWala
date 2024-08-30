@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast'
 import { MdEmail, MdDateRange } from 'react-icons/md'
 import { RiIncreaseDecreaseLine } from 'react-icons/ri'
 import { FiUser, FiPhone, FiClock } from 'react-icons/fi'
-import { addOrder } from '../../redux/order/order.action'
+import { addOrder, getUserOrders} from '../../redux/order/order.action'
 import logo from '../TiffinWalaLogo.png'
 
 function MealSubscription() {
@@ -62,8 +62,10 @@ function MealSubscription() {
         if (response.razorpay_payment_id) {
           data.paymentStatus = "Success"
           data.paymentId = response.razorpay_payment_id
-          
-          dispatch(addOrder(data))
+          console.log("meal in meal");
+          dispatch(addOrder(data));
+          dispatch(getUserOrders());
+
           toast.success("Order Placed Successfully")
           navigate('/orders')
         } else {

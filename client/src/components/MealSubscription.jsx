@@ -57,7 +57,7 @@ function MealSubscription() {
       "handler": function (response){
         if(response.razorpay_payment_id){
           data.paymentStatus = "Success"
-         
+          console.log("meal in compo");
           dispatch(addOrder(data))
           dispatch(getUserOrders());
           window.alert("Order Placed Succefully")
